@@ -1,4 +1,4 @@
-module github.com/foxglove/mcap/go/mcap
+module github.com/depisces/mcap/go/mcap
 
 go 1.21
 
