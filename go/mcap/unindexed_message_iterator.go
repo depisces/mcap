@@ -19,6 +19,10 @@ type unindexedMessageIterator struct {
 	metadataCallback func(*Metadata) error
 }
 
+func (it *unindexedMessageIterator) GetChunkIndexes() ([]*ChunkIndex, error) {
+	return nil, fmt.Errorf("unindexedMessageIterator can not GetChunkIndexes")
+}
+
 func (it *unindexedMessageIterator) Next(p []byte) (*Schema, *Channel, *Message, error) {
 	msg := &Message{Data: p}
 	return it.NextInto(msg)

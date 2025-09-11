@@ -74,6 +74,8 @@ type MessageIterator interface {
 	// SetBaseInfo make you less time to parse summary section
 	// make sure using the same MCAP info
 	SetBaseInfo(*Info) error
+	// GetChunkIndexes make you obtain the index in advance.
+	GetChunkIndexes() ([]*ChunkIndex, error)
 }
 
 func Range(it MessageIterator, f func(*Schema, *Channel, *Message) error) error {

@@ -73,6 +73,10 @@ type indexedMessageIterator struct {
 	metadataCallback func(*Metadata) error
 }
 
+func (it *indexedMessageIterator) GetChunkIndexes() ([]*ChunkIndex, error) {
+	return it.chunkIndexes, nil
+}
+
 func (it *indexedMessageIterator) seekTo(offset uint64) error {
 	if offset > uint64(math.MaxInt64) {
 		return fmt.Errorf("%w: %d > int64 max", ErrBadOffset, offset)
